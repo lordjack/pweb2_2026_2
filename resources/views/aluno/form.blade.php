@@ -11,7 +11,7 @@
         @endphp
 
         <h4>Formulário Aluno</h4>
-        <form action="{{ $action }}" method="post">
+        <form action="{{ $action }}" method="post" enctype="multipart/form-data">
             @csrf
             @if (!empty($data->id))
                 @method('PUT')
@@ -36,13 +36,21 @@
                 <select name="categoria_id" class="form-select">
                     @foreach ($categorias as $item)
                         <option value="{{ $item->id }}"
-                            {{ old('categoria_id', $data->categoria_id ?? '')
-                                 == $item->id ? 'selected' : '' }}>
+                            {{ old('categoria_id', $data->categoria_id ?? '') == $item->id ? 'selected' : '' }}>
                             {{ $item->nome }}
                         </option>
                     @endforeach
                 </select>
 
+            </div>
+            <div class="col-6">
+                <label for="imagem">Imagem</label>
+                @php
+                    $nome_imagem = !empty($data->imagem) ? $data->imagem : 'sem_imagem.jpg';
+                @endphp
+                <img src="/storage/{{ $nome_imagem }}" class="rounded-circle" width="200px" height="200px"
+                    alt="Imagem" />
+                <input type="file" name="imagem" class="form-control" value="{{ old('imagem', $data->imagem ?? '') }}">
             </div>
             <div class="mt-2">
                 <button type="submit" class="btn btn-success">Salvar</button>

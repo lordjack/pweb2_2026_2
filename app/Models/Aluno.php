@@ -13,6 +13,7 @@ class Aluno extends Model
         'nome',
         'cpf',
         'telefone',
+        'imagem',
         'categoria_id',
     ];
 
