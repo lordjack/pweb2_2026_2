@@ -33,13 +33,27 @@ Route::post(
     [AlunoController::class, 'search']
 )->name('aluno.search');
 
+Route::get(
+    '/curso/report',
+    [\App\Http\Controllers\CursoController::class, 'report']
+)->name('curso.report');
+
+Route::get(
+    '/curso/report-matriculados',
+    [\App\Http\Controllers\CursoController::class, 'reportMatriculados']
+)->name('curso.reportMatriculados');
+
 Route::resource('curso', \App\Http\Controllers\CursoController::class);
 
-Route::get('/curso/{curso}/turmas',
- [\App\Http\Controllers\TurmaController::class, 'index'])->name('curso.turmas');
+Route::get(
+    '/curso/{curso}/turmas',
+    [\App\Http\Controllers\TurmaController::class, 'index']
+)->name('curso.turmas');
 
-Route::get('/curso/{curso}/turmas/create',
- [\App\Http\Controllers\TurmaController::class, 'create'])->name('curso.turmas.create');
+Route::get(
+    '/curso/{curso}/turmas/create',
+    [\App\Http\Controllers\TurmaController::class, 'create']
+)->name('curso.turmas.create');
 
 Route::post(
     '/curso/search',
