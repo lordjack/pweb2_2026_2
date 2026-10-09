@@ -7,6 +7,7 @@ Route::get('/', function () {
     return view('main');
 });
 
+###### Aluno ######
 Route::get('/aluno', [AlunoController::class, 'index']);
 Route::get('/aluno/create', [AlunoController::class, 'create']);
 Route::post(
@@ -33,6 +34,10 @@ Route::post(
     [AlunoController::class, 'search']
 )->name('aluno.search');
 
+###### Fim Aluno ######
+
+###### Curso ######
+
 Route::get(
     '/curso/report',
     [\App\Http\Controllers\CursoController::class, 'report']
@@ -42,6 +47,16 @@ Route::get(
     '/curso/report-matriculados',
     [\App\Http\Controllers\CursoController::class, 'reportMatriculados']
 )->name('curso.reportMatriculados');
+
+Route::get(
+    '/curso/chart',
+    [\App\Http\Controllers\CursoController::class, 'chart']
+)->name('curso.chart');
+
+Route::get(
+    '/curso/chart-qtd-aluno-curso-chart',
+    [\App\Http\Controllers\CursoController::class, 'chartQtdAlunoCurso']
+)->name('curso.qtdAlunoCursoChart');
 
 Route::resource('curso', \App\Http\Controllers\CursoController::class);
 
@@ -60,17 +75,27 @@ Route::post(
     [\App\Http\Controllers\CursoController::class, 'search']
 )->name('curso.search');
 
+###### Fim Curso ######
+
+###### Turma ######
+
 Route::resource('turma', \App\Http\Controllers\TurmaController::class);
 Route::post(
     '/turma/search',
     [\App\Http\Controllers\TurmaController::class, 'search']
 )->name('turma.search');
 
+###### fim Turma ######
+
+###### Matricula ######
+
 Route::resource('matricula', \App\Http\Controllers\MatriculaController::class);
 Route::post(
     '/matricula/search',
     [\App\Http\Controllers\MatriculaController::class, 'search']
 )->name('matricula.search');
+
+###### fim Matricula ######
 
 /*
 Route::get('/aluno', function () {

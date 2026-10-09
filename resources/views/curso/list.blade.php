@@ -24,6 +24,8 @@
                     <a href="{{ url('curso/create') }}" class="btn btn-success"> Novo</a>
                     <a href="{{ url('curso/report') }}" class="btn btn-danger"> Relatório</a>
                     <a href="{{ url('curso/report-matriculados') }}" class="btn btn-danger"> Relatório Matrículados</a>
+                    <a href="{{ url('curso/chart') }}" class="btn btn-warning"> Gráfico </a>
+                    <a href="{{ url('curso/chart-qtd-aluno-curso-chart') }}" class="btn btn-warning"> Gráfico Matriculados </a>
                 </div>
             </div>
         </form>
